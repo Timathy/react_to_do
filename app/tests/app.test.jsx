@@ -1,4 +1,4 @@
-var expect = require('expect');
+const expect = require('expect');
 
 describe('App.test.jsx test', function () {
   it('should properly display the tests', function () {

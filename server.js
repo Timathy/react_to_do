@@ -1,4 +1,4 @@
-var express = require('express');
+const express = require('express');
 
 // Create our app
 var app = express();
