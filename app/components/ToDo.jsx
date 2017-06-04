@@ -6,7 +6,7 @@ const ToDo = React.createClass({
 
     return (
       <div>
-        {id}. {text}
+        <p>{id}. {text}</p>
       </div>
     );
   }
