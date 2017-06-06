@@ -32,12 +32,15 @@ const ToDoApp = React.createClass({
   handleAddToDo: function (text) {
     var { todos } = this.state;
 
-    todos.push({
-      id: uuid(),
-      text: text
+    this.setState({
+      todos: [
+        ...todos,
+        {
+          id: uuid(),
+          text: text
+        }
+      ]
     });
-
-    this.setState({ todos });
   },
 
   handleSearch: function (searchValue, checkedValue) {
