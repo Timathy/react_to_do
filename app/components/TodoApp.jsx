@@ -1,10 +1,14 @@
 const React = require('react');
 const ToDoList = require('ToDoList');
 const AddToDo = require('AddToDo');
+const SearchToDoFilter = require('SearchToDoFilter');
 
 const ToDoApp = React.createClass({
   getInitialState: function () {
     return {
+      searchValue: '',
+      checkedValue: false,
+      
       todos: [
         {
           id: 1,
@@ -28,12 +32,21 @@ const ToDoApp = React.createClass({
     console.log('new todo:', text);
   },
 
+  handleSearch: function (searchValue, checkedValue) {
+    console.log(searchValue, checkedValue);
+    this.setState({
+      searchValue: searchValue.toLowerCase(),
+      checkedValue: checkedValue
+    });
+  },
+
   render: function () {
     var { todos } = this.state;
 
     return (
       <div className="row">
         <div className="columns small-centered large-4 medium-6 small-12">
+          <SearchToDoFilter onSearch={this.handleSearch}/>
           <ToDoList todos={todos}/>
           <AddToDo onInputValue={this.handleAddToDo}/>
         </div>
