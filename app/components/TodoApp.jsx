@@ -2,6 +2,7 @@ const React = require('react');
 const ToDoList = require('ToDoList');
 const AddToDo = require('AddToDo');
 const SearchToDoFilter = require('SearchToDoFilter');
+const uuid = require('node-uuid');
 
 const ToDoApp = React.createClass({
   getInitialState: function () {
@@ -29,19 +30,14 @@ const ToDoApp = React.createClass({
   },
 
   handleAddToDo: function (text) {
-    console.log('new todo:', text);
-
     var { todos } = this.state;
 
+    todos.push({
+      id: uuid(),
+      text: text
+    });
 
-    // Future reference for updating and setting
-    // the ID and text fields
-    // todos.push({
-    //   id: undefined,
-    //   text: text
-    // });
-    //
-    // this.setState({ todos });
+    this.setState({ todos });
   },
 
   handleSearch: function (searchValue, checkedValue) {

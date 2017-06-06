@@ -14,11 +14,6 @@ const AddToDo = React.createClass({
     if (addItem !== '' || addItem.length > 0) {
       this.refs.addItemToDo.value = '';
       this.props.onInputValue(addItem);
-
-      if (addItem.indexOf(' ') >= 0) {
-        this.refs.addItemToDo.value = '';
-        errFunc();
-      }
     } else {
       errFunc();
     }
