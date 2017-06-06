@@ -8,7 +8,7 @@ const ToDoApp = React.createClass({
     return {
       searchValue: '',
       checkedValue: false,
-      
+
       todos: [
         {
           id: 1,
@@ -24,12 +24,24 @@ const ToDoApp = React.createClass({
           id: 3,
           text: 'Watch the Complete Java Masterclass tomorrow'
         }
-      ]
+      ],
     };
   },
 
   handleAddToDo: function (text) {
     console.log('new todo:', text);
+
+    var { todos } = this.state;
+
+
+    // Future reference for updating and setting
+    // the ID and text fields
+    // todos.push({
+    //   id: undefined,
+    //   text: text
+    // });
+    //
+    // this.setState({ todos });
   },
 
   handleSearch: function (searchValue, checkedValue) {
