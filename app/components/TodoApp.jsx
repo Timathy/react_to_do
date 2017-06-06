@@ -44,7 +44,6 @@ const ToDoApp = React.createClass({
   },
 
   handleSearch: function (searchValue, checkedValue) {
-    console.log(searchValue, checkedValue);
     this.setState({
       searchValue: searchValue.toLowerCase(),
       checkedValue: checkedValue
