@@ -12,6 +12,24 @@ describe('TodoApp', function () {
     expect(ToDoApp).toExist();
   });
 
+  it('should update completed state', () => {
+    var data = {
+      id: 14,
+      text: 'lorem ipsum',
+      completed: false
+    };
+
+    var toDoApp = TestUtils.renderIntoDocument(<ToDoApp/>);
+
+    toDoApp.setState({ todos: [data] });
+
+    expect(toDoApp.state.todos[0].completed).toBe(false);
+
+    toDoApp.handleToggle(14, true);
+    TestUtils.Simulate.change(toDoApp.state.todos[0].completed);
+    expect(toDoApp.state.todos[0].completed).toBe(true);
+  });
+
   describe('render', function () {
     it('should add todo to the todos state on handleAddToDo', () => {
       var toDoApp = TestUtils.renderIntoDocument(<ToDoApp/>);
